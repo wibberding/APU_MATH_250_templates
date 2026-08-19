@@ -1,0 +1,164 @@
+---
+title: "AE-07: Grading the Professor - SLR"
+subtitle: "submit at end of class (exit ticket)"
+author: "YOUR NAME HERE"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Modelling with a single predictor
+
+Many college courses conclude by giving students the opportunity to evaluate the course and the instructor anonymously. However, the use of these student evaluations as an indicator of course quality and teaching effectiveness is often criticized because these measures may reflect the influence of non-teaching related characteristics, such as the physical appearance of the instructor. The article titled, "Beauty in the classroom: instructors' pulchritude and putative pedagogical productivity" (Hamermesh and Parker, 2005) found that instructors who are viewed to be better looking receive higher instructional ratings. (Daniel S. Hamermesh, Amy Parker, Beauty in the classroom: instructors pulchritude and putative pedagogical productivity, Economics of Education Review, Volume 24, Issue 4, August 2005, Pages 369-376, ISSN 0272-7757, 10.1016/j.econedurev.2004.07.013. <http://www.sciencedirect.com/science/article/pii/S0272775704001165>.)
+
+In this AE you will analyze the data from this study in order to learn what goes into a positive professor evaluation.
+
+The data were gathered from end of semester student evaluations for a large sample of professors from the University of Texas at Austin. In addition, six students rated the professors' physical appearance. (This is a slightly modified version of the original data set that was released as part of the replication data for Data Analysis Using Regression and Multilevel/Hierarchical Models (Gelman and Hill, 2007).) The result is a data frame where each row contains a different course and columns represent variables about the courses and professors.
+
+# Packages
+
+We'll use the `tidyverse` package for much of the data wrangling and visualisation, and the data lives in the `openintro` package.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(openintro)
+```
+
+## Data
+
+The data can be found in the **openintro** package, and it's called `evals`. Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package. You can find out more about the dataset by inspecting its documentation, which you can access by running `?evals` in the Console or using the Help menu in RStudio to search for `evals`. You can also find this information [here](https://www.openintro.org/data/index.php?data=evals).
+
+# Exercises
+
+## Exploratory Data Analysis
+
+### Exercise 1
+
+Visualize the distribution of `score`.
+
+```{r}
+
+```
+
+Is the distribution skewed? What does that tell you about how students rate courses?
+
+> YOUR ANSWER HERE
+
+### Exercise 2
+
+Visualize and describe the relationship between `score` and `bty_avg` using a scatterplot.
+
+```{r}
+
+```
+
+Recreate the scatterplot, but this time use `geom_jitter()`.
+
+```{r}
+
+```
+
+What does "jitter" mean? What was misleading about the initial scatterplot? **Hint:** See the help page for the function at <http://ggplot2.tidyverse.org/reference/index.html>.
+
+> YOUR ANSWER HERE
+
+## Linear regression with a numerical predictor
+
+Linear model is in the form $\hat{y} = b_0 + b_1 x$.
+
+### Exercise 3
+
+Let's see if the apparent trend in the plot is something more than natural variation. Fit a linear model called `score_bty_fit` to predict average professor evaluation `score` by average beauty rating (`bty_avg`).
+
+```{r}
+
+```
+
+Based on the regression output, write the linear model:
+
+$$
+equationhere
+$$
+
+### Exercise 4
+
+Recreate the scatterplot from Exercise 2, and add the regression line to this plot in orange color, with shading for the uncertainty of the line turned off.
+
+```{r}
+
+```
+
+### Exercise 5
+
+Interpret the slope of the linear model in context of the data.
+
+> YOUR ANSWER HERE
+
+Interpret the intercept of the linear model in context of the data.
+
+> YOUR ANSWER HERE
+
+Comment on whether or not the intercept makes sense in this context.
+
+> YOUR ANSWER HERE
+
+### Exercise 6
+
+Determine the $R^2$ of the model and interpret it in context of the data.
+
+```{r}
+
+```
+
+> YOUR ANSWER HERE
+
+## Linear regression with a categorical predictor
+
+### Exercise 7
+
+Fit a new linear model called `score_gender_fit` to predict average professor evaluation `score` based on `gender` of the professor.
+
+```{r}
+
+```
+
+Based on the regression output, write the linear model and interpret the slope and intercept in context of the data.
+
+$$
+equation7.1here
+$$
+
+> YOUR ANSWER HERE
+
+What is the equation of the line corresponding to male professors?
+
+$$
+equation7.2here
+$$
+
+What is it for female professors?
+
+$$
+equation7.3here
+$$
+
+# Submission & Grading
+
+At the end of class, you should submit your .html file to the appropriate AE assignment on Canvas. This serves as your "exit ticket" for today's class.
+
+It is okay if you did not complete all the exercises - it is helpful for me to see your progress, and you will receive full credit (10pts) if you made a good faith effort on the assignment.
+
+You are encouraged to complete any remaining exercises on your own, but you do not need to re-submit your assignment to Canvas.
+
+If you were unable to attend class, you may still submit your AE for half credit (5pts). The two lowest AE scores will be dropped at the end of the semester to accommodate occasional absences.

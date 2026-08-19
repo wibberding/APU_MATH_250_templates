@@ -1,0 +1,131 @@
+---
+title: "Exam 01: Avengers & AirBnb"
+author: "YOUR NAME HERE"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Reflection prompts
+
+*Respond to each of the following after you have completed all exercises in this exam*
+
+*(RP1): Provide your name below as a "signature" to indicate that you did NOT communicate with other people on this exam, and you did NOT post to an online forum or ask an AI chat bot for help on this exam. If you cannot attest to this, come talk to me, and we will work to find an alternative way for you to complete the Exam fairly.*
+
+> YOUR NAME HERE
+
+*(RP2): What exercise(s) gave you the most trouble on this exam? What was difficult about them/where did you get stuck?*
+
+> YOUR ANSWER HERE
+
+*(RP3): What resources did you utilize while working on the Exam? E.g. lecture slides, lecture videos, previous labs, the internet. If you used the internet, indicate which sites you found helpful and why.*
+
+> YOUR ANSWER HERE
+
+*(RP4): What do you hope to get better at or learn by the end of the semester? This can be something we've already covered or something you hope we cover.*
+
+> YOUR ANSWER HERE
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(dsbox)
+library(ggridges)
+library(kableExtra)
+```
+
+# Avengers Data
+
+```{r}
+#| label: load-data
+#| message: false
+avengers <- read_csv("data/avengers.csv")
+```
+
+## Exercise 1
+
+```{r}
+
+```
+
+## Exercise 2
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+## Exercise 3
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+## Exercise 4
+
+```{r}
+
+```
+
+> YOUR NARRATIVE NEXT HERE
+
+## Exercise 5
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+# AirBnb Data
+
+```{r}
+edibnb <- dsbox::edibnb
+```
+
+## Exercise 6
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+## Exercise 7
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+## Exercise 8
+
+```{r}
+
+```
+
+> YOUR NARRATIVE TEXT HERE
+
+## Exercise 9
+
+> YOUR NARRATIVE TEXT HERE
+
+# BONUS
+
+```{r}
+
+```

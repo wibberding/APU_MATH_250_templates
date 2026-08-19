@@ -1,0 +1,137 @@
+---
+title: "Importing & Cleaning"
+subtitle: "submit at end of class (exit ticket)"
+author: "YOUR NAME HERE"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r load-pkg, message = FALSE}
+library(tidyverse)
+```
+
+# Getting Started
+
+Make sure you have downloaded the file `hotels.csv` from our [course GitHub repo](https://github.com/kgfitzgerald/APU_MATH_250_templates), and place it in a subfolder called `data` in your MATH_250 R Project.
+
+# Exercises
+
+## Exercise 1
+
+Write a line of code to read in the `hotels.csv` dataset from the `data` folder in your project directory and save it into an object called `hotels`.
+
+```{r load-data, message = FALSE}
+
+```
+
+## Exercise 2
+
+Remove `eval = FALSE`, Render the document, and view the following visualization.
+
+```{r plot, fig.width=10, eval = FALSE}
+hotels |>
+  group_by(hotel, arrival_date_month) |> # group by hotel type and arrival month
+  summarise(mean_adr = mean(adr)) |>     # calculate mean adr for each group
+  ggplot(aes(
+    x = arrival_date_month,               # x-axis = arrival_date_month
+    y = mean_adr,                         # y-axis = mean_adr calculated above
+    group = hotel,                        # group lines by hotel type
+    color = hotel)                        # and color by hotel type
+    ) +
+  geom_line() +                           # use lines to represent data
+  theme_minimal() +                       # use a minimal theme
+  labs(x = "Arrival month",               # customize labels
+       y = "Mean ADR (average daily rate)",
+       title = "Comparison of resort and city hotel prices across months",
+       subtitle = "Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year",
+       color = "Hotel type")
+```
+
+How are the months ordered?
+
+> YOUR ANSWER HERE
+
+What would be a better order?
+
+> YOUR ANSWER HERE
+
+Reorder the months on the x-axis (levels of `arrival_date_month`) in a way that makes more sense. You will want to use the `factor()` function inside a `mutate()`, and specify the order using the `levels` argument.
+
+```{r label-me-1}
+# add code for reordering the months
+
+```
+
+Recreate the data visualization above, with the correct ordering of months.
+
+```{r label-me-2}
+
+```
+
+## Exercise 3
+
+Use the `hotels` dataset to create two separate dataframes, one for City Hotels and one for Resort Hotels.
+
+```{r label-me-3}
+
+```
+
+Write these two dataframes to new csv files. Place them in the data folder in your project directory.
+
+```{r label-me-4}
+# add code for writing out the two data frames here
+
+```
+
+## Exercise 4
+
+Read in the Excel file called `sales.xlsx` from the `data/` folder such that it looks like the image below. Note you may need to load a new package - you should add this to the `load-pkg` code chunk at the top of the document. Print out the sales data so it is visible in your .html
+
+```{r echo=FALSE, out.width="20%"}
+knitr::include_graphics("images/sales-1.png")
+```
+
+```{r label-me-5}
+
+
+```
+
+# Stretch Goals
+
+If you finish the above exercises before time is up, try out the following two stretch goals. Google when you don't know what code to use!
+
+1.  Manipulate the sales data in Exercise 4 such such that it looks like the following. *Hint: try creating two intermediate dataframes `brand1`* *and `brand2`, then combine them.*
+
+```{r echo=FALSE, out.width="25%"}
+knitr::include_graphics("images/sales-2.png")
+```
+
+```{r label-me-6}
+
+```
+
+2.  Recreate the plot from Exercise 2 but change the y-axis label so the values are shown with dollar signs, e.g. \$80 instead of 80. You will want to use a function from the **scales** package, see <https://scales.r-lib.org/reference/index.html> for inspiration and help.
+
+```{r label-me-7}
+
+```
+
+# Submission & Grading
+
+At the end of class, you should submit your .html file to the appropriate AE assignment on Canvas. This serves as your "exit ticket" for today's class.
+
+It is okay if you did not complete all the exercises - it is helpful for me to see your progress, and you will receive full credit (10pts) if you made a good faith effort on the assignment.
+
+You are encouraged to complete any remaining exercises on your own, but you do not need to re-submit your assignment to Canvas.
+
+If you were unable to attend class, you may still submit your AE for half credit (5pts). The two lowest AE scores will be dropped at the end of the semester to accommodate occasional absences.

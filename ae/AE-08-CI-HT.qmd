@@ -1,0 +1,166 @@
+---
+title: "AE-08 / Lab 6.5: Confidence Intervals and Hypothesis Tests"
+subtitle: "due Thursday, October 31, 4:20pm"
+author: "YOUR NAME HERE"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Reflection prompts
+
+*Respond to each of the following after you have completed all exercises in this assignment*
+
+*(RP1): What were the main concepts covered in this assignment?*
+
+> YOUR ANSWER HERE
+
+*(RP2): What's one thing you understand better after completing these exercises?*
+
+> YOUR ANSWER HERE
+
+*(RP3): What exercise(s) gave you the most trouble? What was difficult about them/where did you get stuck?*
+
+> YOUR ANSWER HERE
+
+# Packages
+
+We'll use the `tidyverse` package for much of the data wrangling and visualization, and the data lives in the `openintro` package.
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(openintro)
+library(broom)
+```
+
+## Data
+
+We're going to revisit the `evals` data from last week. It comes from the `openintro` package.
+
+```{r}
+evals <- openintro::evals
+```
+
+# Exercises
+
+Below is a model you fit last week, using `bty_avg` to predict `score`.
+
+```{r}
+m1 <- lm(score ~ bty_avg, data = evals)
+tidy(m1)
+```
+
+## Analysis 1
+
+A confidence interval for the slope, $\beta_1$ is computed by
+
+$$b_1 \pm t_{1 - \alpha/2,n-2}SE(b_1)$$
+
+1.  Which value in the output above gives $b_1$?
+
+> YOUR ANSWER HERE (use inline code to extract)
+
+2.  Which value in the output above gives $SE(b_1)$?
+
+> YOUR ANSWER HERE (use inline code to extract)
+
+3.  Assuming you want a 95% confidence interval, what is $1 - \alpha/2$?
+
+> YOUR ANSWER HERE
+
+4.  What is the value of $n$ for this data?
+
+> YOUR ANSWER HERE (use inline code)
+
+5.  Use the `qt()` function to find $t_{n-2}$ (assuming a 95% confidence interval)
+
+```{r}
+
+```
+
+6.  Combine all of the above pieces to compute the confidence interval for $\beta_1$.
+
+```{r}
+
+```
+
+7.  Interpret your interval.
+
+> YOUR ANSWER HERE
+
+8.  Use `confint()` to compute the same confidence interval.
+
+```{r}
+
+```
+
+9.  Use `confint()` to compute a 99% confidence interval for $\beta_1$.
+
+```{r}
+
+```
+
+## Analysis 2
+
+We'll now consider a hypothesis test for whether there is a true relationship between `bty_avg` and `score`.
+
+10. Write out appropriate null and alternative hypotheses using mathematical symbols.
+
+$$typehere$$ $$typehere$$
+
+The test statistic is given by $$T = \frac{b_1}{SE(b_1)}$$
+
+11. Where can $T$ be found in the regression output? Use code to extract this value from the table, and verify that you get the same result by dividing the slope by its standard error.
+
+```{r}
+
+```
+
+12. What critical value should the above test statistic be compared to? Assume an $\alpha = 0.05$ test.
+
+> YOUR ANSWER HERE
+
+13. Use the test statistic and critical value to draw a conclusion about the hypothesis test.
+
+> YOUR ANSWER HERE
+
+14. What is the p-value for this hypothesis test?
+
+> YOUR ANSWER HERE (use inline code to extract)
+
+15. Explain how this p-value relates to the test statistic.
+
+> YOUR ANSWER HERE
+
+16. Use the p-value to draw a conclusion about the hypothesis test.
+
+> YOUR ANSWER HERE
+
+17. Explain how you could have used your 95% confidence interval to draw a conclusion about this hypothesis test.
+
+> YOUR ANSWER HERE
+
+18. Create a scatterplot of the relationship described by this linear model, and include the line of best fit.
+
+```{r}
+
+```
+
+19. Would you consider there to be a strong relationship between these two variables? Comment on how & why the results of the hypothesis test could be misleading. Is a confidence interval misleading in the same way? Why or why not?
+
+> YOUR ANSWER HERE
+
+# Submission & Grading
+
+Unlike other AEs, this assignment will be graded for correctness, out of 20 points. Each exercise is worth 1 point, and the Reflection prompts are worth 1 point. You should submit your .html no later than class-time next Thursday.

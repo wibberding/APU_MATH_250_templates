@@ -1,0 +1,24 @@
+---
+title: "Week 03 Live Code"
+subtitle: "Mr. Trash Wheel - Tidy Tuesday 03/05/24"
+author: "YOUR NAME HERE"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+    df-print: paged
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+
+trashwheel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')
+```
+

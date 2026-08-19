@@ -1,0 +1,79 @@
+---
+title: "Week 02 Live Code"
+subtitle: "Olympic Medals - Tidy Tuesday 08/06/24"
+author: "YOUR NAME HERE"
+format: 
+  html:
+    self-contained: true
+    toc: true
+    toc_float: true
+    number_section: false
+    highlight: "tango"
+    theme: "cosmo"
+    df-print: paged
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#load necessary packages
+library(tidyverse)
+
+#read in data from github
+olympics <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-08-06/olympics.csv')
+
+#take a quick look at the data
+glimpse(olympics)
+```
+
+```{r}
+#what is the average age of Olympians, by sex?
+olympics |> 
+  group_by(sex) |> 
+  summarize(mean_age = mean(age, na.rm = TRUE))
+
+#get summary statistics for age - will show us min and max
+summary(olympics$age)
+#min age is 10 and max is 97!
+
+#look at distribution of age
+#age is numeric so we use a histogram
+ggplot(olympics, aes(x = age)) +
+  geom_histogram()
+
+#what sports are in this data?
+olympics |> 
+  count(sport) #|> View() 
+
+#what years was each sport part of the olympics?
+#changed to boxplot from geom_point b/c takes a long time to
+#plot 270k+ points
+ggplot(olympics, aes(x = year, y = sport)) +
+  geom_boxplot()
+
+#what is the first and last year each sport appeared in the olympics?
+#note: this data only goes until 2016
+olympics |> 
+  group_by(sport) |> 
+  summarize(min_year = min(year, na.rm = TRUE),
+            max_year = max(year, na.rm = TRUE)) #|> View()
+
+#average weight by sport
+olympics |> 
+  group_by(sport) |> 
+  summarize(avg_weight = mean(weight, na.rm = TRUE)) #|> View()
+
+#plot distribution of weight just for a few sports
+olympics |> 
+  filter(sport %in% c("Beach Volleyball",
+                       "Basketball",
+                       "Art Competition",
+                       "Triathalon",
+                       "Gymnastics",
+                       "Weightlifting")) |> 
+  ggplot(aes(x = weight)) +
+  facet_wrap(~sport, ncol = 1) +
+  geom_density()
+  
+```
