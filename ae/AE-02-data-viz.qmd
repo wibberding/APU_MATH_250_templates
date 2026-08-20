@@ -1,6 +1,6 @@
 ---
 title: "AE 02: Data Visualization"
-subtitle: "due Tuesday September 5 at 5:45pm"
+subtitle: "due Monday August 2 at 5:45pm"
 author: "YOUR NAME HERE"
 format: 
   html:
