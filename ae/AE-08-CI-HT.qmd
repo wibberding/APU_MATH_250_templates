@@ -1,6 +1,6 @@
 ---
 title: "AE-08 / Lab 6.5: Confidence Intervals and Hypothesis Tests"
-subtitle: "due Thursday, October 31, 4:20pm"
+subtitle: "due Thursday, October 30, 4:20pm"
 author: "YOUR NAME HERE"
 date: "`r Sys.Date()`"
 format: 
