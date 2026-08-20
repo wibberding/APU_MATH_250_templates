@@ -1,6 +1,6 @@
 ---
 title: "UN Votes"
-subtitle: "due Thursday, August 29, 4:20pm"
+subtitle: "due Friday, August 28, 4:20pm"
 author: "YOUR NAME HERE"
 format: 
   html:
