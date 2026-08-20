@@ -1,6 +1,6 @@
 ---
 title: "AE 02: Data Visualization"
-subtitle: "due Monday August 2 at 5:45pm"
+subtitle: "submit at end of class (exit ticket)"
 author: "YOUR NAME HERE"
 format: 
   html:
